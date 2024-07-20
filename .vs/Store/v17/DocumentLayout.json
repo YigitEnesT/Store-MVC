@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C77B3800-382C-4D1E-B1A6-34B892B3D355}|StoreApp\\StoreApp.csproj|c:\\users\\yetun\\desktop\\btk\\mvc-kurs\\store\\storeapp\\storeapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C77B3800-382C-4D1E-B1A6-34B892B3D355}|StoreApp\\StoreApp.csproj|solutionrelative:storeapp\\storeapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\StoreApp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StoreApp\\StoreApp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,11 +23,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "StoreApp",
+              "Title": "StoreApp.csproj",
               "DocumentMoniker": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\StoreApp.csproj",
               "RelativeDocumentMoniker": "StoreApp\\StoreApp.csproj",
-              "ToolTip": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\StoreApp.csproj*",
-              "RelativeToolTip": "StoreApp\\StoreApp.csproj*",
+              "ToolTip": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\StoreApp.csproj",
+              "RelativeToolTip": "StoreApp\\StoreApp.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-07-19T13:11:22.092Z",
