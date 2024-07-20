@@ -63,3 +63,4 @@ C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\runtimes\win
 C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
 =======
 >>>>>>> Stashed changes
+C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\StoreApp.staticwebassets.runtime.json
