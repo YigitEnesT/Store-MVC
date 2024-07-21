@@ -6,8 +6,9 @@
         Only for Index Footer
     </div>
 }
-
+<div class="row my-3">
 @foreach (Product prd in Model)
 {
-    <partial name="_ProductCard" model="@prd" />
+        <partial name="_ProductCard" model="@prd" />
 }
+</div>

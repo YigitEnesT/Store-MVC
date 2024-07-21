@@ -64,3 +64,4 @@ C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\runtimes\win
 =======
 >>>>>>> Stashed changes
 C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\StoreApp.staticwebassets.runtime.json
+C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\libman.json
