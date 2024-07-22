@@ -599,6 +599,20 @@
         "runtime": {
           "bin/placeholder/Repositories.dll": {}
         }
+      },
+      "Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Entities": "1.0.0",
+          "Repositories": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Services.dll": {}
+        }
       }
     }
   },
@@ -1285,6 +1299,11 @@
       "type": "project",
       "path": "../Repositories/Repositories.csproj",
       "msbuildProject": "../Repositories/Repositories.csproj"
+    },
+    "Services/1.0.0": {
+      "type": "project",
+      "path": "../Services/Services.csproj",
+      "msbuildProject": "../Services/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1292,7 +1311,8 @@
       "Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
       "Repositories >= 1.0.0",
-      "SQLitePCLRaw.bundle_e_sqlite3 >= 2.1.8"
+      "SQLitePCLRaw.bundle_e_sqlite3 >= 2.1.8",
+      "Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1333,6 +1353,9 @@
             },
             "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\Repositories\\Repositories.csproj": {
               "projectPath": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\Repositories\\Repositories.csproj"
+            },
+            "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\Services\\Services.csproj"
             }
           }
         }

@@ -69,3 +69,5 @@ C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Entities.dll
 C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Entities.pdb
 C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Repositories.dll
 C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Repositories.pdb
+C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Services.dll
+C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Services.pdb
