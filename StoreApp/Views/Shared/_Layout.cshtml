@@ -12,24 +12,29 @@
 </head>
 
 <body>
-    <header>
-        <partial name="_Navbar" />
-        @RenderSection("Header",false)
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="d-flex flex-column min-vh-100">
+        <header>
+            <partial name="_Navbar" />
+            @RenderSection("Header", false)
+        </header>
+
+        <div class="container flex-grow-1">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+        <footer class="mt-auto">
+            <partial name="_Footer" />
+            @RenderSection("Footer", false)
+        </footer>
     </div>
-    <footer>
-        @RenderSection("Footer",false)
-        Footer
-    </footer>
+
+
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js"></script>
     <script src="~/lib/font-awesome/js/all.min.js"></script>
-    @await RenderSectionAsync("Scripts",required:false)
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>
