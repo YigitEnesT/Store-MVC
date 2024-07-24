@@ -8,6 +8,11 @@ namespace Repositories
         public ProductRepository(RepositoryContext context) : base(context)
         {
         }
+
+        public void CreateProduct(Product entity) => Create(entity);
+
+        public void DeleteOneProduct(Product entity) => Delete(entity);
+
         public IQueryable<Product> GetAllProducts(bool trackChanges) => FindAll(trackChanges);
 
         public Product? GetOneProduct(int id, bool trackChanges)
