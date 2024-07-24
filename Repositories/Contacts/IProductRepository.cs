@@ -8,5 +8,6 @@ namespace Repositories.Contracts
         Product? GetOneProduct(int id, bool trackChanges);
         void CreateProduct(Product entity);
         void DeleteOneProduct(Product entity);
+        void UpdateOneProduct(Product entity);
     }
 }
