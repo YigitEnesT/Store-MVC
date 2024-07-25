@@ -1,14 +1,21 @@
-
 @model IQueryable<Product>
 
-@section Footer{
+<div class="row">
+    <div class="col-md-3 my-3">
+            @await Component.InvokeAsync("CategoriesMenu")
+    </div>
+    <div class="col-md-9 my-3">
+        <div class="row ">
+            @foreach (Product prd in Model)
+            {
+                <partial name="_ProductCard" model="@prd" />
+            }
+        </div>
+    </div>
+</div>
+
+@section Footer {
     <div>
         Only for Index Footer
     </div>
 }
-<div class="row my-3">
-@foreach (Product prd in Model)
-{
-        <partial name="_ProductCard" model="@prd" />
-}
-</div>
