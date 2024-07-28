@@ -17,6 +17,7 @@ namespace Repositories.Config
                 {
                     ProductId = 1,
                     CategoryId = 2,
+                    ImageUrl="/images/1.jpg",
                     ProductName = "Computer",
                     Price = 15000
                 },
@@ -24,6 +25,7 @@ namespace Repositories.Config
                 {
                     ProductId = 2,
                     CategoryId = 2,
+                    ImageUrl="/images/2.jpg",
                     ProductName = "Keyboard",
                     Price = 1500
                 },
@@ -31,6 +33,7 @@ namespace Repositories.Config
                 {
                     ProductId = 3,
                     CategoryId = 2,
+                    ImageUrl="/images/3.jpg",
                     ProductName = "Mouse",
                     Price = 500
                 },
@@ -38,6 +41,7 @@ namespace Repositories.Config
                 {
                     ProductId = 4,
                     CategoryId = 2,
+                    ImageUrl="/images/4.jpg",
                     ProductName = "Monitor",
                     Price = 5000
                 },
@@ -45,6 +49,7 @@ namespace Repositories.Config
                 {
                     ProductId = 5,
                     CategoryId = 2,
+                    ImageUrl="/images/5.jpg",
                     ProductName = "Deck",
                     Price = 1000
                 },
@@ -52,6 +57,7 @@ namespace Repositories.Config
                 {
                     ProductId = 6,
                     CategoryId = 1,
+                    ImageUrl="/images/6.jpg",
                     ProductName = "A Novel",
                     Price = 100
                 },
@@ -59,6 +65,7 @@ namespace Repositories.Config
                 {
                     ProductId = 7,
                     CategoryId = 1,
+                    ImageUrl="/images/7.jpg",
                     ProductName = "Hamlet",
                     Price = 25
                 }
