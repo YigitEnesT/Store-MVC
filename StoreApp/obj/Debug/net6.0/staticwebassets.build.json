@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8aWg4Dr193uVcyhOR9XbW0hkN8QYiNipnCXWq8tcj3k=",
+  "Hash": "Djollt408yZ4GgNIXwbLqLvVm4cTAtvDVdvRv0gjTXE=",
   "Source": "StoreApp",
   "BasePath": "_content/StoreApp",
   "Mode": "Default",
@@ -16,25 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\css\\productCard.css",
-      "SourceId": "StoreApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\",
-      "BasePath": "_content/StoreApp",
-      "RelativePath": "css/productCard.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\productCard.css"
-    },
     {
       "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\css\\site.css",
       "SourceId": "StoreApp",
