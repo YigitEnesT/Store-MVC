@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Repositories;
 using Services.Contracts;
 
 namespace StoreApp.Components
