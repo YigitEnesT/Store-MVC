@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{941A3DAA-D5B4-43C0-8148-4D8A511C887D}|Entities\\Entities.csproj|c:\\users\\yetun\\desktop\\btk\\mvc-kurs\\store\\entities\\entities.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{941A3DAA-D5B4-43C0-8148-4D8A511C887D}|Entities\\Entities.csproj|solutionrelative:entities\\entities.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{413097AF-02A1-4754-A731-F76C646A133E}|Services\\Services.csproj|c:\\users\\yetun\\desktop\\btk\\mvc-kurs\\store\\services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{413097AF-02A1-4754-A731-F76C646A133E}|Services\\Services.csproj|solutionrelative:services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -26,15 +30,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Entities",
+              "DocumentMoniker": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\Entities\\Entities.csproj",
+              "RelativeDocumentMoniker": "Entities\\Entities.csproj",
+              "ToolTip": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\Entities\\Entities.csproj",
+              "RelativeToolTip": "Entities\\Entities.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-01T12:20:05.925Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\Program.cs",
               "RelativeDocumentMoniker": "StoreApp\\Program.cs",
@@ -47,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Services.csproj",
               "DocumentMoniker": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\Services\\Services.csproj",
               "RelativeDocumentMoniker": "Services\\Services.csproj",
@@ -60,7 +77,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Repositories.csproj",
               "DocumentMoniker": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\Repositories\\Repositories.csproj",
               "RelativeDocumentMoniker": "Repositories\\Repositories.csproj",
@@ -73,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "StoreApp.csproj",
               "DocumentMoniker": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\StoreApp.csproj",
               "RelativeDocumentMoniker": "StoreApp\\StoreApp.csproj",
