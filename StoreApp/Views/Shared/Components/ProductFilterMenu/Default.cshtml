@@ -1,11 +1,11 @@
-<div class="my-3">
-    <h6 class="lead">
+<div class="my-4 cursor-pointer">
+    <h6 class="lead" data-bs-toggle="collapse" data-bs-target="#filtersCollapse" aria-expanded="false" aria-controls="filtersCollapse">
         <i class="fa fa-filter text-secondary"></i>
         Filters
     </h6>
 </div>
 
-<div class="my-2">
+<div class="my-4 collapse" id="filtersCollapse">
     <form method="get" asp-action="Index">
         <input type="hidden" name="categoryId" value="@(Context.Request.Query["categoryId"])" />
         <div class="form-group my-2">
