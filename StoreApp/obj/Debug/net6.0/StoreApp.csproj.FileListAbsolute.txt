@@ -73,3 +73,4 @@ C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Services.dll
 C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Services.pdb
 C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\yetun\Desktop\BTK\MVC-Kurs\Store\StoreApp\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
