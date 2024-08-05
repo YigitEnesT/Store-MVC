@@ -28,14 +28,6 @@ namespace StoreApp.Infrastructure.Extentions
                     .SetDefaultCulture("tr-TR");
             });
         }
-        public static void ConfigureRouting(this IServiceCollection services)
-        {
-            services.AddRouting(options =>
-            {
-                options.LowercaseUrls = true;
-                options.AppendTrailingSlash = false;
-            });
-        }
         public static async void ConfigureDefaultAdminUser(this IApplicationBuilder app)
         {
             const string adminUser = "Admin";
