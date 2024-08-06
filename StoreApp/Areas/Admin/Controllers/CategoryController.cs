@@ -19,5 +19,9 @@ namespace StoreApp.Areas.Admin.Controllers
         {
             return View(_manager.CategoryService.GetAllCategories(false));
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

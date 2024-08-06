@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositorie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{413097AF-02A1-4754-A731-F76C646A133E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{13032F94-306F-490F-B8CB-353DC766A450}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{413097AF-02A1-4754-A731-F76C646A133E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{413097AF-02A1-4754-A731-F76C646A133E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{413097AF-02A1-4754-A731-F76C646A133E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13032F94-306F-490F-B8CB-353DC766A450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13032F94-306F-490F-B8CB-353DC766A450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13032F94-306F-490F-B8CB-353DC766A450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13032F94-306F-490F-B8CB-353DC766A450}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

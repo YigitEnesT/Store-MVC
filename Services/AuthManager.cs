@@ -74,10 +74,21 @@ namespace Services
         public async Task<IdentityResult> ResetPassword(ResetPasswordDto model)
         {
             var user = await GetOneUser(model.UserName);
-            await _userManager.RemovePasswordAsync(user);
-            var result = await _userManager.AddPasswordAsync(user, model.Password);
+
+            var passwordValidator = new PasswordValidator<IdentityUser>();
+            var passwordValidationResult = await passwordValidator.ValidateAsync(_userManager, user, model.Password);
+
+            if (!passwordValidationResult.Succeeded)
+            {
+                return passwordValidationResult;
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user,token,model.Password);
+
             return result;
         }
+
 
         public async Task UpdateUser(UserDtoForUpdate userDto)
         {
