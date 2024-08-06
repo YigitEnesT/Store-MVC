@@ -1,1 +1,23 @@
-<h3>Category Index</h3>
+@model IEnumerable<Category>
+
+<div class="text-center my-3">
+    <h6 class="display-6">
+        Categories
+    </h6>
+</div>
+
+<div class="row">
+    <div class="col-2 col-md-4"></div>
+    <div class="col-8 col-md-4">
+        <ul class="list-group my-3">
+            @foreach (var cat in Model)
+            {
+                <li class="list-group-item">@cat.CategoryName</li>
+            }
+        </ul>
+        <div class="text-center my-3">
+            <a class="btn btn-primary" asp-controller="Category" asp-action="Create">Create New Category</a>
+        </div>
+    </div>
+    <div class="col-2 col-md-4"></div>
+</div>

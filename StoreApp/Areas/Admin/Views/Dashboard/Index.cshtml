@@ -1,1 +1,5 @@
-<h3>Dashboard Index</h3>
+<div class="my-5">
+    <partial name="_Carts" />
+</div>
+
+@await Component.InvokeAsync("Showcase", new{page="list"});
