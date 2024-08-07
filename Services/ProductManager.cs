@@ -71,6 +71,11 @@ namespace Services
             return productDto;
         }
 
+        public IEnumerable<Product> GetProductsWithPagination(ProductRequestParameters p)
+        {
+            return _manager.Product.GetProductsWithPagination(p);
+        }
+
         public IEnumerable<Product> GetShowcaseProducts(bool trackChanges)
         {
             return _manager.Product.GetShowcaseProducts(trackChanges);

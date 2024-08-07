@@ -36,6 +36,7 @@ namespace StoreApp.Infrastructure.Extentions
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredLength = 6;
             })
+            .AddDefaultTokenProviders()
             .AddEntityFrameworkStores<RepositoryContext>();
         }
 

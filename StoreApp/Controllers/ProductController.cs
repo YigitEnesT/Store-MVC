@@ -22,23 +22,29 @@ namespace StoreApp.Controllers
         {
             ViewData["Title"] = "Products";
             var products = _manager.ProductService.GetAllProductsWithDetails(p);
-            var pagination = new Pagination()
+
+            var pagedProducts = _manager.ProductService.GetProductsWithPagination(p);
+
+            var pagination = new Pagination
             {
                 CurrentPage = p.PageNumber,
                 ItemsPerPage = p.PageSize,
-                TotalItems = _manager.ProductService.GetAllProducts(false).Count()
+                TotalItems = products.Count()
             };
 
-            return View(new ProductListViewModel()
+            var viewModel = new ProductListViewModel
             {
-                Products = products,
+                Products = pagedProducts,
                 Pagination = pagination
-            });
+            };
+
+            return View(viewModel);
         }
+
 
         public IActionResult Get([FromRoute(Name = "id")] int id)
         {
-            var model = _manager.ProductService.GetOneProduct(id,false);
+            var model = _manager.ProductService.GetOneProduct(id, false);
             ViewData["Title"] = model?.ProductName;
             return View(model);
         }

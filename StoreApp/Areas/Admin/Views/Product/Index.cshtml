@@ -68,9 +68,17 @@
         </table>
 
         <div class="d-flex justify-content-end">
-            <div page-model="@Model?.Pagination" page-action="Index" page-classes-enabled="true" page-class="btn"
-                page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group">
-
+            @{
+                var routeValues = ViewContext.HttpContext.Request.Query.ToDictionary(q => q.Key, q => (object)q.Value.ToString());
+            }
+            <div page-model="@Model?.Pagination" 
+                 page-action="Index" 
+                 page-classes-enabled="true" 
+                 page-class="btn"
+                 page-class-normal="btn-outline-dark" 
+                 page-class-selected="btn-primary" 
+                 class="btn-group"
+                 route-values="@(new RouteValueDictionary(routeValues))">
             </div>
         </div>
     </div>

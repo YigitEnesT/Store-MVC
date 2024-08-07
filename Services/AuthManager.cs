@@ -28,7 +28,7 @@ namespace Services
             var result = await _userManager.CreateAsync(user, userDto.Password);
 
             if (!result.Succeeded)
-                throw new Exception("User could not be created.");
+                return result;
 
             if (userDto.Roles.Count > 0)
             {
