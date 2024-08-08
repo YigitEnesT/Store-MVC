@@ -15,6 +15,7 @@ namespace StoreApp.Infrastructure.Mapper
             CreateMap<UserDtoForCreation, IdentityUser>();
             CreateMap<UserDtoForUpdate, IdentityUser>().ReverseMap();
 
+            CreateMap<CategoryDtoForInsertion, Category>();
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "X6UH5zXpd484oPiXFrlPZQZSItC0QrwfhshGJ8fAgIo=",
+  "Hash": "OnLDuvnyicGOz7u9mZP1Fj536Jo7Ixc8nH5jhWkUzPA=",
   "Source": "StoreApp",
   "BasePath": "_content/StoreApp",
   "Mode": "Default",
@@ -243,6 +243,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\9.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\images\\baklava.jpg",
+      "SourceId": "StoreApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\",
+      "BasePath": "_content/StoreApp",
+      "RelativePath": "images/baklava.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\baklava.jpg"
     },
     {
       "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\images\\default.jpg",

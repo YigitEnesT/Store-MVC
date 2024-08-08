@@ -1,6 +1,9 @@
 using Entities.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Services;
+using Services.Contracts;
 using StoreApp.Models;
 
 namespace StoreApp.Controllers
@@ -9,14 +12,16 @@ namespace StoreApp.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly IServiceManager _manager;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IServiceManager manager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _manager = manager;
         }
 
-        public IActionResult Login([FromQuery(Name ="ReturnUrl")] string ReturnUrl="/")
+        public IActionResult Login([FromQuery(Name = "ReturnUrl")] string ReturnUrl = "/")
         {
             return View(new LoginModel()
             {
@@ -27,13 +32,13 @@ namespace StoreApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login([FromForm] LoginModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 IdentityUser user = await _userManager.FindByNameAsync(model.Name);
                 if (user is not null)
                 {
                     await _signInManager.SignOutAsync();
-                    if ((await _signInManager.PasswordSignInAsync(user,model.Password,false, false)).Succeeded)
+                    if ((await _signInManager.PasswordSignInAsync(user, model.Password, false, false)).Succeeded)
                     {
                         return Redirect(model?.ReturnUrl ?? "/");
                     }
@@ -42,7 +47,7 @@ namespace StoreApp.Controllers
             }
             return View();
         }
-        public async Task<IActionResult> Logout([FromQuery(Name ="ReturnUrl")] string ReturnUrl="/")
+        public async Task<IActionResult> Logout([FromQuery(Name = "ReturnUrl")] string ReturnUrl = "/")
         {
             await _signInManager.SignOutAsync();
             return Redirect(ReturnUrl);
@@ -69,9 +74,9 @@ namespace StoreApp.Controllers
             {
                 var roleResult = await _userManager
                     .AddToRoleAsync(user, "User");
-                
+
                 if (roleResult.Succeeded)
-                    return RedirectToAction("Login", new {ReturnUrl = "/"});
+                    return RedirectToAction("Login", new { ReturnUrl = "/" });
             }
             else
             {
@@ -84,9 +89,78 @@ namespace StoreApp.Controllers
             return View();
         }
 
-        public  IActionResult AccessDenied([FromQuery(Name ="ReturnUrl")] string returnUrl)
+        public IActionResult AccessDenied([FromQuery(Name = "ReturnUrl")] string returnUrl)
         {
             return View();
         }
+
+        [Authorize]
+        public async Task<IActionResult> Update()
+        {
+            var username = User.Identity.Name;
+            if (username is not null)
+            {
+                var user = await _manager.AuthService.GetOneUserDetails(username);
+                return View(user);
+            }
+            return RedirectToAction("/");
+        }
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update([FromForm] UserDtoForUpdate userDto)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _manager.AuthService.UpdateUser(userDto);
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                }
+            }
+            return View(userDto);
+        }
+
+
+        public async Task<IActionResult> ResetPassword([FromRoute(Name = "id")] string id)
+        {
+            return View(new ResetPasswordDto()
+            {
+                UserName = id
+            });
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword([FromForm] ResetPasswordDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var result = await _manager.AuthService.ResetPassword(model);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Update");
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+            return View(model);
+        }
+
     }
 }
