@@ -15,5 +15,6 @@ namespace Services.Contracts
         void UpdateOneProduct(ProductDtoForUpdate productDto);
         void DeleteOneProduct(int id,bool trackChanges);
         ProductDtoForUpdate GetOneProductForUpdate(int id, bool trackChanges);
+        IEnumerable<Product> GetProductsWithPagination(ProductRequestParameters p);
     }
 }

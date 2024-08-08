@@ -24,13 +24,19 @@ namespace Repositories
                 .Products
                 .FilteredByCategoryId(p.CategoryId)
                 .FilteredBySearchTerm(p.SearchTerm)
-                .FilteredByPrice(p.MinPrice,p.MaxPrice,p.IsValidPrice)
-                .ToPaginate(p.PageNumber,p.PageSize);
+                .FilteredByPrice(p.MinPrice, p.MaxPrice, p.IsValidPrice);
         }
+
 
         public Product? GetOneProduct(int id, bool trackChanges)
         {
-            return FindByCondition(p => p.ProductId.Equals(id) ,trackChanges);
+            return FindByCondition(p => p.ProductId.Equals(id), trackChanges);
+        }
+
+        public IQueryable<Product> GetProductsWithPagination(ProductRequestParameters p)
+        {
+            var filteredProducts = GetAllProductsWithDetails(p);
+            return filteredProducts.ToPaginate(p.PageNumber, p.PageSize);
         }
 
         public IQueryable<Product> GetShowcaseProducts(bool trackChanges)

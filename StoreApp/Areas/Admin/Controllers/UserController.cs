@@ -34,11 +34,27 @@ namespace StoreApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] UserDtoForCreation userDto)
         {
-            var result = await _manager.AuthService.CreateUser(userDto);
-            return result.Succeeded
-                ? RedirectToAction("Index")
-                : View();
+            if (ModelState.IsValid)
+            {
+                var result = await _manager.AuthService.CreateUser(userDto);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            return View(new UserDtoForCreation()
+            {
+                Roles = new HashSet<string>(_manager.AuthService.Roles.Select(r => r.Name).ToList())
+            });
         }
+
 
         public async Task<IActionResult> Update([FromRoute(Name = "id")] string id)
         {

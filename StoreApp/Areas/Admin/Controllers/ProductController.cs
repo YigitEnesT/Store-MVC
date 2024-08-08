@@ -24,22 +24,27 @@ namespace StoreApp.Areas.Admin.Controllers
             return new SelectList(_manager.CategoryService.GetAllCategories(false), "CategoryId", "CategoryName", "1");
         }
 
-        public IActionResult Index([FromQuery] ProductRequestParameters p)
+        public IActionResult Index(ProductRequestParameters p)
         {
             ViewData["Title"] = "Products";
             var products = _manager.ProductService.GetAllProductsWithDetails(p);
-            var pagination = new Pagination()
+
+            var pagedProducts = _manager.ProductService.GetProductsWithPagination(p);
+
+            var pagination = new Pagination
             {
                 CurrentPage = p.PageNumber,
                 ItemsPerPage = p.PageSize,
-                TotalItems = _manager.ProductService.GetAllProducts(false).Count()
+                TotalItems = products.Count()
             };
 
-            return View(new ProductListViewModel()
+            var viewModel = new ProductListViewModel
             {
-                Products = products,
+                Products = pagedProducts,
                 Pagination = pagination
-            });
+            };
+
+            return View(viewModel);
         }
         public IActionResult Create()
         {

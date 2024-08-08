@@ -12,6 +12,6 @@ namespace Repositories.Contracts
         void CreateProduct(Product entity);
         void DeleteOneProduct(Product entity);
         void UpdateOneProduct(Product entity);
-
+        IQueryable<Product> GetProductsWithPagination(ProductRequestParameters p);
     }
 }
