@@ -1,0 +1,85 @@
+@model Order
+
+@{
+    var total = @Model.Lines.Sum(c => c.Product.Price * c.Quantity);
+}
+
+<div class="row shadow my-3">
+    <div class="col-md-3 border-1 border-dark p-3 bg-light shadow text-center">
+        <h5 class="display-5">
+            <i class="fa fa-sm fa-user"></i>
+            <br>
+            @Model?.Name
+        </h5>
+    </div>
+    <div class="col-md-9">
+        <div class="row text-center">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Order ID</td>
+                        <td>Order Date</td>
+                        <td>Total Amount</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle">@Model?.OrderId</td>
+                        <td class="align-middle">@Model?.OrderedAt.ToString()</td>
+                        <td class="align-middle">@total.ToString("c2")</td>
+                        <td class="align-middle">
+                            <!-- Button to trigger modal -->
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">
+                                Details
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="justify-content-center align-items-center p-2 my-3">
+                <span class="bg-info p-2 rounded-2 me-3">
+                    Shipped
+                </span>
+                <span class="p-2 rounded-2 flex-grow-1 text-center @(Model.Shipped ? "bg-success" : "bg-warning")">
+                    @(Model.Shipped ? "Completed" : "In Progress")
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML -->
+<div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderDetailsModalLabel">Order Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Display order details here -->
+                <h6>Order ID:</h6>
+                <p>@Model?.OrderId</p>
+
+                <h6>Order Date:</h6>
+                <p>@Model?.OrderedAt.ToString()</p>
+
+                <h6>Total Amount:</h6>
+                <p>@total.ToString("c2")</p>
+
+                <h6>Items:</h6>
+                <ul>
+                    @foreach (var line in Model.Lines)
+                    {
+                        <li>@line.Product.ProductName - @line.Quantity x @line.Product.Price.ToString("c2")</li>
+                    }
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

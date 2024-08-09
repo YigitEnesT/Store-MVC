@@ -62,26 +62,6 @@ namespace StoreApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    OrderId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Line1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Line2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Line3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GiftWrap = table.Column<bool>(type: "bit", nullable: false),
-                    Shipped = table.Column<bool>(type: "bit", nullable: false),
-                    OrderedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.OrderId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -188,6 +168,32 @@ namespace StoreApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    OrderId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StreetAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    County = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GiftWrap = table.Column<bool>(type: "bit", nullable: false),
+                    Shipped = table.Column<bool>(type: "bit", nullable: false),
+                    OrderedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.OrderId);
+                    table.ForeignKey(
+                        name: "FK_Orders_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -241,9 +247,9 @@ namespace StoreApp.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "85bead07-ab92-42d5-b553-cee531d8421c", "b24176ed-dc3d-4b43-99b1-81186f60c57d", "User", "USER" },
-                    { "99c54fab-1b8e-4e62-9701-1c756dfbe7f3", "87016c21-a563-4fca-927b-66842ffde08c", "Editor", "EDITOR" },
-                    { "c72aa553-7102-4b9e-876d-1de0f6ca3e90", "dcee8973-ffd2-461f-9015-7cbe21528517", "Admin", "ADMIN" }
+                    { "23dcf566-b262-42a9-98be-8756a0a5e3d5", "8392fc0f-dc98-45b4-aae6-2510fb64be18", "User", "USER" },
+                    { "66a9658e-1b85-4973-a63c-c356ad25d730", "5a62aade-201a-427f-8522-e6ef2c6c0c5c", "Admin", "ADMIN" },
+                    { "856c39bf-d360-4a3a-a000-cccde32b2942", "501693bd-52b4-439f-acb7-ae63231bea0a", "Editor", "EDITOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -321,6 +327,11 @@ namespace StoreApp.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_UserId",
+                table: "Orders",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
@@ -350,13 +361,13 @@ namespace StoreApp.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Categories");

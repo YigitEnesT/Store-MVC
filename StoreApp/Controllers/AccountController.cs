@@ -1,7 +1,9 @@
+using System.Security.Claims;
 using Entities.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Services;
 using Services.Contracts;
 using StoreApp.Models;
@@ -103,7 +105,7 @@ namespace StoreApp.Controllers
                 var user = await _manager.AuthService.GetOneUserDetails(username);
                 return View(user);
             }
-            return RedirectToAction("/");
+            return RedirectToAction("Index","Home");
         }
         [Authorize]
         [HttpPost]
@@ -115,7 +117,7 @@ namespace StoreApp.Controllers
                 try
                 {
                     await _manager.AuthService.UpdateUser(userDto);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Update");
                 }
                 catch (Exception ex)
                 {
@@ -160,6 +162,18 @@ namespace StoreApp.Controllers
                 }
             }
             return View(model);
+        }
+
+        [Authorize]
+        public IActionResult Order()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId is not null)
+            {
+                var orders = _manager.OrderService.GetOrdersByUserId(userId);
+                return View(orders);
+            }
+            return RedirectToAction("Account","Login");
         }
 
     }

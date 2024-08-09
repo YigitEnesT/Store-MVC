@@ -28,6 +28,14 @@ namespace Services
             return _manager.Order.GetOneOrder(id);
         }
 
+        public IQueryable<Order> GetOrdersByUserId(string id)
+        {
+            return _manager
+                .Order
+                .Orders
+                .Where(o => o.UserId.Equals(id));
+        }
+
         public void SaveOrder(Order order)
         {
             _manager.Order.SaveOrder(order);
