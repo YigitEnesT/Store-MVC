@@ -1,0 +1,48 @@
+@model IEnumerable<ProductReview>
+
+<div class="text-center my-3">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var review in Model)
+        {
+            <div class="card shadow rounded-5 bg-light my-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between border-bottom">
+                        <p class="card-text">@review.User.UserName</p>
+                        <p class="card-text"><small class="text-muted">Rating: @review.Rating / 5</small></p>
+                        <p class="card-text"><small class="text-muted">Date: @review.ReviewDate.ToShortDateString()</small></p>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2">
+                        <p class="card-text">@review.ReviewText Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, ea.</p>
+                        <div>
+                            @if (User.Identity.IsAuthenticated && User.Identity.Name == review.User.UserName)
+                            {
+                                <form asp-controller="Product" asp-action="RemoveReview" method="post">
+                                    <input type="hidden" name="id" value="@review.ReviewId" />
+                                    <input type="hidden" name="productId" value="@ViewData["ProductId"]" />
+                                    <button type="submit" class="btn" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No reviews have been made for this product yet.</p>
+    }
+</div>
+
+<script asp-append-version="true" src="~/lib/jquery/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
+</script>

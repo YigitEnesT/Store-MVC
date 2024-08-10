@@ -1,0 +1,41 @@
+.rating {
+    border: none;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating>label {
+    color: #90A0A3;
+    cursor: pointer;
+}
+
+.rating>label:before {
+    font-size: 1.5em;
+    font-family: FontAwesome;
+    content: "\f005";
+    display: inline-block;
+}
+
+.rating>input {
+    display: none;
+}
+
+.rating>input:checked~label,
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+    color: #F79426;
+}
+
+.rating>input:checked+label:hover,
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+.rating>input:checked~label:hover~label {
+    color: #FECE31;
+}
+
+textarea {
+    resize: none;
+}

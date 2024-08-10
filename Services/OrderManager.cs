@@ -38,6 +38,12 @@ namespace Services
 
         public void SaveOrder(Order order)
         {
+            int currentYear = DateTime.Now.Year;
+            int orderCount = _manager.Order.Orders.Count(o => o.OrderedAt.Year == currentYear);
+
+            string orderNumber = $"{currentYear}{(orderCount+1).ToString("D3")}";
+            order.OrderNumber = orderNumber;
+
             _manager.Order.SaveOrder(order);
             _manager.Save();
         }

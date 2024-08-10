@@ -12,5 +12,6 @@ namespace Entities.Dtos
         public String? Summary { get; init; } = String.Empty;
         public String? ImageUrl { get; set; }
         public int? CategoryId { get; init; }
+        public List<ProductReviewDto>? Reviews { get; set; }
     }
 }

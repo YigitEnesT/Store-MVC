@@ -49,8 +49,6 @@ namespace StoreApp.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewBag.Categories = GetCategoriesSelectList();
-
-
             return View();
         }
 

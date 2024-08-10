@@ -104,6 +104,9 @@ namespace StoreApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OrderNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("OrderedAt")
                         .HasColumnType("datetime2");
 
@@ -250,6 +253,38 @@ namespace StoreApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Entities.Models.ProductReview", b =>
+                {
+                    b.Property<int>("ReviewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"), 1L, 1);
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReviewDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReviewText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProductReviews");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -279,22 +314,22 @@ namespace StoreApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "23dcf566-b262-42a9-98be-8756a0a5e3d5",
-                            ConcurrencyStamp = "8392fc0f-dc98-45b4-aae6-2510fb64be18",
+                            Id = "157e5e5e-6fb0-4a26-a8a2-74172fb87948",
+                            ConcurrencyStamp = "40ed2bc9-586c-4b9e-b5f3-0eaadd0f84fb",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "856c39bf-d360-4a3a-a000-cccde32b2942",
-                            ConcurrencyStamp = "501693bd-52b4-439f-acb7-ae63231bea0a",
+                            Id = "1fa951d6-5a24-448b-8685-b7568c74295f",
+                            ConcurrencyStamp = "a2c28bc5-e009-4079-b30c-97361831a01a",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "66a9658e-1b85-4973-a63c-c356ad25d730",
-                            ConcurrencyStamp = "5a62aade-201a-427f-8522-e6ef2c6c0c5c",
+                            Id = "52da5b32-44a3-4d02-9148-b039308e3164",
+                            ConcurrencyStamp = "7e9ca1cc-46cb-4d7d-bb8e-28c0e64eb73b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -502,6 +537,23 @@ namespace StoreApp.Migrations
                         .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Entities.Models.ProductReview", b =>
+                {
+                    b.HasOne("Entities.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
