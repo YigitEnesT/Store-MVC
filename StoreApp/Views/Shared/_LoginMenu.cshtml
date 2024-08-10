@@ -10,26 +10,44 @@
 }
 @if (User.Identity.IsAuthenticated)
 {
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" 
-            asp-area="" 
-            asp-controller="Account"
-            asp-route-returnUrl="@Context.Request.PathAndQuery()"
-            asp-action="Logout">
-            Logout 
-            <i class="fa-solid fa-sign-out"></i>
-        </a>
-    </li>
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa fa-user"></i>
+                Profile
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                <li>
+                    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Update">
+                        <i class="fa fa-user-gear"></i>
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Order">
+                        <i class="fa fa-shopping-bag"></i>
+                        My Orders
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-area="" asp-controller="Account"
+                        asp-route-returnUrl="@Context.Request.PathAndQuery()" asp-action="Logout">
+                        Logout
+                        <i class="fa-solid fa-sign-out"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
 }
+
 else
 {
     <li class="nav-item">
-        <a class="nav-link active" 
-            aria-current="page" 
-            asp-area="" 
-            asp-controller="Account"
-            asp-route-returnUrl="@Context.Request.PathAndQuery()"
-            asp-action="Login">
+        <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Account"
+            asp-route-returnUrl="@Context.Request.PathAndQuery()" asp-action="Login">
             <i class="fa-solid fa-sign-in"></i>
             Login
         </a>

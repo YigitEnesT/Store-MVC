@@ -11,8 +11,10 @@ namespace Entities.Models
         public String? Name { get; set; }
         [Required(ErrorMessage = "Line1 is required.")]
         public String? Line1 { get; set; }
+        [Required(ErrorMessage = "Line2 is required.")]
         public String? Line2 { get; set; }
         public String? Line3 { get; set; }
+        [Required(ErrorMessage = "City is required.")]
         public String? City { get; set; }
         public bool GiftWrap { get; set; }
         public bool Shipped { get; set; }

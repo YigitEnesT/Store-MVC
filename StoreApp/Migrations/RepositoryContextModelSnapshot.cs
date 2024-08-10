@@ -86,6 +86,7 @@ namespace StoreApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("GiftWrap")
@@ -96,6 +97,7 @@ namespace StoreApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Line2")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Line3")
@@ -271,22 +273,22 @@ namespace StoreApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5ee9ec91-3a35-4342-b18b-e4cf600de0bd",
-                            ConcurrencyStamp = "b67adb97-9ff0-48b7-bb78-0a307bf18441",
+                            Id = "85bead07-ab92-42d5-b553-cee531d8421c",
+                            ConcurrencyStamp = "b24176ed-dc3d-4b43-99b1-81186f60c57d",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "0e7f08bf-c709-4759-af07-ac391616cc86",
-                            ConcurrencyStamp = "7299a480-2299-4793-a869-d09ffe2ca51c",
+                            Id = "99c54fab-1b8e-4e62-9701-1c756dfbe7f3",
+                            ConcurrencyStamp = "87016c21-a563-4fca-927b-66842ffde08c",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "9d769a8b-d792-485d-b853-23f43f8fe0f1",
-                            ConcurrencyStamp = "27305df2-4a43-4149-b0aa-6ee838d95525",
+                            Id = "c72aa553-7102-4b9e-876d-1de0f6ca3e90",
+                            ConcurrencyStamp = "dcee8973-ffd2-461f-9015-7cbe21528517",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

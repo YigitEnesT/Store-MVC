@@ -69,9 +69,9 @@ namespace StoreApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Line1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Line2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Line2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Line3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GiftWrap = table.Column<bool>(type: "bit", nullable: false),
                     Shipped = table.Column<bool>(type: "bit", nullable: false),
                     OrderedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -241,9 +241,9 @@ namespace StoreApp.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0e7f08bf-c709-4759-af07-ac391616cc86", "7299a480-2299-4793-a869-d09ffe2ca51c", "Editor", "EDITOR" },
-                    { "5ee9ec91-3a35-4342-b18b-e4cf600de0bd", "b67adb97-9ff0-48b7-bb78-0a307bf18441", "User", "USER" },
-                    { "9d769a8b-d792-485d-b853-23f43f8fe0f1", "27305df2-4a43-4149-b0aa-6ee838d95525", "Admin", "ADMIN" }
+                    { "85bead07-ab92-42d5-b553-cee531d8421c", "b24176ed-dc3d-4b43-99b1-81186f60c57d", "User", "USER" },
+                    { "99c54fab-1b8e-4e62-9701-1c756dfbe7f3", "87016c21-a563-4fca-927b-66842ffde08c", "Editor", "EDITOR" },
+                    { "c72aa553-7102-4b9e-876d-1de0f6ca3e90", "dcee8973-ffd2-461f-9015-7cbe21528517", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(

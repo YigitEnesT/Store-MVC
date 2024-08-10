@@ -1,3 +1,4 @@
+using Entities.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
@@ -22,6 +23,18 @@ namespace StoreApp.Areas.Admin.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([FromForm] CategoryDtoForInsertion categoryDto)
+        {
+            if (ModelState.IsValid)
+            {
+                _manager.CategoryService.CreateOneCategory(categoryDto, false);
+                return RedirectToAction("Index");
+            }
+            return View(categoryDto);
         }
     }
 }

@@ -1,0 +1,67 @@
+@model UserDtoForUpdate
+
+<div class="text-center my-5">
+    <h6 class="display-6">
+        <i class="fa-solid fa-user-gear text-white bg-secondary p-3 rounded-5"></i>
+        <br>
+        Profile Settings
+    </h6>
+</div>
+
+<form asp-action="Update" method="post">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group my-3">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" class="form-control bg-body-secondary" />
+            </div>
+
+            <div class="form-group my-3">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+
+            <div class="form-group my-3">
+                <label asp-for="PhoneNumber"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+            </div>
+
+            <div class="form-group my-3">
+                User's Roles:
+                <ul>
+                    @foreach (var role in Model.Roles)
+                    {
+                        if (Model.UserRoles.Contains(role))
+                        {
+                            <li class="my-2">
+                                <span>@role</span>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="form-group my-3">
+                <div class="btn-group d-flex">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-solid fa-upload"></i>
+                        Update
+                    </button>
+                    <a asp-action="ResetPassword" asp-route-id="@Model.UserName" class="btn btn-info">
+                        <i class="fa fa-key"></i>
+                        Reset Password
+                    </a>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-warning">
+                        <i class="fa fa-arrow-left"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
+
+    </div>
+
+</form>
