@@ -13,7 +13,12 @@
                         <p class="card-text"><small class="text-muted">Date: @review.ReviewDate.ToShortDateString()</small></p>
                     </div>
                     <div class="d-flex justify-content-between mt-2">
-                        <p class="card-text">@review.ReviewText Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, ea.</p>
+                        <div>
+                            <p class="card-text review-text">@review.ReviewText Lorem ipsum dolor sit amet consectetur
+                                adipisicing
+                                elit. Veritatis, ea.</p>
+                        </div>
+
                         <div>
                             @if (User.Identity.IsAuthenticated && User.Identity.Name == review.User.UserName)
                             {
@@ -38,11 +43,10 @@
         <p>No reviews have been made for this product yet.</p>
     }
 </div>
-
 <script asp-append-version="true" src="~/lib/jquery/jquery.min.js"></script>
 
 <script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip(); 
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
