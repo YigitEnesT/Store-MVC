@@ -1,32 +1,40 @@
 @model Order
 
-<div class="text-danger" asp-validation-summary="All">
+<div class="text-danger" asp-validation-summary="All"></div>
 
-</div>
+@{
+    ViewBag.Title = "CheckOut";
+    var cities = ViewBag.Cities as IEnumerable<SelectListItem>;
+    var allLocations = ViewBag.AllLocations as List<AddressViewModel>;
+}
 
 <form method="post" asp-action="Checkout">
     <div class="form-group my-3">
         <label asp-for="Name"></label>
-        <input class="form-control" asp-for="Name" >
-    </div>
-    <div class="form-group my-3">
-        <label asp-for="Line1"></label>
-        <input class="form-control" asp-for="Line1" >
-    </div>
-    <div class="form-group my-3">
-        <label asp-for="Line2"></label>
-        <input class="form-control" asp-for="Line2" >
-    </div>
-    <div class="form-group my-3">
-        <label asp-for="Line3"></label>
-        <input class="form-control" asp-for="Line3" >
+        <input class="form-control" asp-for="Name">
     </div>
     <div class="form-group my-3">
         <label asp-for="City"></label>
-        <input class="form-control" asp-for="City" >
+        <select class="form-control" asp-for="City" asp-items="ViewBag.Cities" id="CityDropdown">
+            <option value="">Select City</option>
+        </select>
     </div>
     <div class="form-group my-3">
-        <input asp-for="GiftWrap" >
+        <label asp-for="County"></label>
+        <select class="form-control" asp-for="County" id="CountyDropdown">
+            <option value="">Select County</option>
+        </select>
+    </div>
+    <div class="form-group my-3">
+        <label asp-for="Address"></label>
+        <input class="form-control" asp-for="Address">
+    </div>
+    <div class="form-group my-3">
+        <label asp-for="StreetAddress"></label>
+        <input class="form-control" asp-for="StreetAddress">
+    </div>
+    <div class="form-group my-3">
+        <input asp-for="GiftWrap">
         <label>Gift wrap these items.</label>
     </div>
     <div class="text-center">
@@ -35,3 +43,35 @@
         </button>
     </div>
 </form>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var cityDropdown = document.getElementById("CityDropdown");
+            var countyDropdown = document.getElementById("CountyDropdown");
+
+            cityDropdown.addEventListener("change", function () {
+                var selectedCity = cityDropdown.value;
+
+                if (selectedCity) {
+                    fetch(`/Order/GetCounties?city=${selectedCity}`)
+                        .then(response => response.json())
+                        .then(counties => {
+                            countyDropdown.innerHTML = '<option value="">Select County</option>';
+                            counties.forEach(county => {
+                                var option = document.createElement("option");
+                                option.value = county;
+                                option.textContent = county;
+                                countyDropdown.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error('Error: ', error));
+
+                } else {
+                    countyDropdown.innerHTML = '<option value="">Select County</option>';
+                }
+
+            });
+        });
+    </script>
+}

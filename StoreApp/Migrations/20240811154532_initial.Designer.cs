@@ -12,7 +12,7 @@ using Repositories;
 namespace StoreApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240810092331_initial")]
+    [Migration("20240811154532_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,23 +87,20 @@ namespace StoreApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("County")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("GiftWrap")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Line1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Line2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Line3")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -115,7 +112,16 @@ namespace StoreApp.Migrations
                     b.Property<bool>("Shipped")
                         .HasColumnType("bit");
 
+                    b.Property<string>("StreetAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("OrderId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -275,22 +281,22 @@ namespace StoreApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "85bead07-ab92-42d5-b553-cee531d8421c",
-                            ConcurrencyStamp = "b24176ed-dc3d-4b43-99b1-81186f60c57d",
+                            Id = "23dcf566-b262-42a9-98be-8756a0a5e3d5",
+                            ConcurrencyStamp = "8392fc0f-dc98-45b4-aae6-2510fb64be18",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "99c54fab-1b8e-4e62-9701-1c756dfbe7f3",
-                            ConcurrencyStamp = "87016c21-a563-4fca-927b-66842ffde08c",
+                            Id = "856c39bf-d360-4a3a-a000-cccde32b2942",
+                            ConcurrencyStamp = "501693bd-52b4-439f-acb7-ae63231bea0a",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "c72aa553-7102-4b9e-876d-1de0f6ca3e90",
-                            ConcurrencyStamp = "dcee8973-ffd2-461f-9015-7cbe21528517",
+                            Id = "66a9658e-1b85-4973-a63c-c356ad25d730",
+                            ConcurrencyStamp = "5a62aade-201a-427f-8522-e6ef2c6c0c5c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -480,6 +486,15 @@ namespace StoreApp.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Entities.Models.Order", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Entities.Models.Product", b =>

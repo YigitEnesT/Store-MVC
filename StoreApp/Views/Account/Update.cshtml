@@ -10,14 +10,18 @@
 
 <form asp-action="Update" method="post">
     <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6">
+        <div class="col-1 col-md-3"></div>
+        <div class="col-10 col-md-6">
             <div asp-validation-summary="All" class="text-danger"></div>
-
+            
             <div class="form-group my-3">
                 <label asp-for="UserName"></label>
-                <input asp-for="UserName" class="form-control bg-body-secondary" />
+                <input asp-for="UserName" class="form-control" type="hidden"/>
+                <div class="form-control bg-body-secondary">
+                    @Model.UserName
+                </div>
             </div>
+
 
             <div class="form-group my-3">
                 <label asp-for="Email"></label>
@@ -26,7 +30,7 @@
 
             <div class="form-group my-3">
                 <label asp-for="PhoneNumber"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
+                <input asp-for="PhoneNumber" class="form-control"/>
             </div>
 
             <div class="form-group my-3">
@@ -60,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3"></div>
+        <div class="col-1 col-md-3"></div>
 
     </div>
 
