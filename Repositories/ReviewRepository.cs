@@ -1,6 +1,8 @@
 using Entities.Models;
+using Entities.RequestParameters;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
+using Repositories.Extensions;
 
 namespace Repositories
 {
@@ -22,6 +24,11 @@ namespace Repositories
                 .Include(r => r.User)
                 .Where(p => p.ProductId.Equals(productId))
                 .OrderByDescending(r => r.ReviewDate);
+        }
+
+        public IQueryable<ProductReview> GetAllReviewsWithPagination(ReviewRequestParameter p)
+        {
+            return GetAllReviewsById(p.ProductId, false).ToPaginate(p.PageNumber,p.PageSize);
         }
 
         public ProductReview? GetOneReview(int id, bool trackChanges)

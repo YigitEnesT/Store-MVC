@@ -1,6 +1,7 @@
 using AutoMapper;
 using Entities.Dtos;
 using Entities.Models;
+using Entities.RequestParameters;
 using Repositories.Contracts;
 using Services.Contracts;
 
@@ -43,6 +44,11 @@ namespace Services
         public IEnumerable<ProductReview> GetAllReviewsById(int productId, bool trackChanges)
         {
             return _manager.Review.GetAllReviewsById(productId, trackChanges);
+        }
+
+        public IEnumerable<ProductReview> GetAllReviewsWithPagination(ReviewRequestParameter p)
+        {
+            return _manager.Review.GetAllReviewsWithPagination(p);
         }
 
         public ProductReview? GetOneReview(int id, bool trackChanges)
