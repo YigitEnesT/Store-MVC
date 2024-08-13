@@ -5,6 +5,7 @@ namespace Entities.RequestParameters
         public int ProductId { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
+        public String? UserName { get; set; }
         public ReviewRequestParameter() : this (1,2)
         {
         }
