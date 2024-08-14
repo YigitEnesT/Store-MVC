@@ -57,6 +57,8 @@ namespace StoreApp.Infrastructure.Extentions
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
+
         }
         public static void ConfigureServicesRegistration(this IServiceCollection services)
         {
@@ -65,6 +67,7 @@ namespace StoreApp.Infrastructure.Extentions
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<IOrderService, OrderManager>();
             services.AddScoped<IAuthService, AuthManager>();
+            services.AddScoped<IReviewService, ReviewManager>();
         }
         public static void ConfigureApplicationCookie(this IServiceCollection services)
         {

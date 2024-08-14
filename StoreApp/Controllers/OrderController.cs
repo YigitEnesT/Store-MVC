@@ -72,7 +72,7 @@ namespace StoreApp.Controllers
                 order.UserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 _manager.OrderService.SaveOrder(order);
                 _cart.Clear();
-                return RedirectToPage("/Complete", new { OrderId = order.OrderId });
+                return RedirectToPage("/Complete", new { OrderNumber = order.OrderNumber });
             }
             var locations = LoadLocations();
             ViewBag.Cities = new SelectList(locations.Select(l => l.il).Distinct().ToList());

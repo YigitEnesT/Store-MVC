@@ -13,6 +13,10 @@
     {
       "library": "jquery@3.7.1",
       "destination": "wwwroot/lib/jquery"
+    },
+    {
+      "library": "alertify.js@0.3.11",
+      "destination": "wwwroot/lib/alertify"
     }
   ]
 }

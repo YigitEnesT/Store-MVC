@@ -173,6 +173,7 @@ namespace StoreApp.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StreetAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -242,14 +243,42 @@ namespace StoreApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ProductReviews",
+                columns: table => new
+                {
+                    ReviewId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ReviewText = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Rating = table.Column<int>(type: "int", nullable: false),
+                    ReviewDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ProductId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductReviews", x => x.ReviewId);
+                    table.ForeignKey(
+                        name: "FK_ProductReviews_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ProductReviews_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "23dcf566-b262-42a9-98be-8756a0a5e3d5", "8392fc0f-dc98-45b4-aae6-2510fb64be18", "User", "USER" },
-                    { "66a9658e-1b85-4973-a63c-c356ad25d730", "5a62aade-201a-427f-8522-e6ef2c6c0c5c", "Admin", "ADMIN" },
-                    { "856c39bf-d360-4a3a-a000-cccde32b2942", "501693bd-52b4-439f-acb7-ae63231bea0a", "Editor", "EDITOR" }
+                    { "157e5e5e-6fb0-4a26-a8a2-74172fb87948", "40ed2bc9-586c-4b9e-b5f3-0eaadd0f84fb", "User", "USER" },
+                    { "1fa951d6-5a24-448b-8685-b7568c74295f", "a2c28bc5-e009-4079-b30c-97361831a01a", "Editor", "EDITOR" },
+                    { "52da5b32-44a3-4d02-9148-b039308e3164", "7e9ca1cc-46cb-4d7d-bb8e-28c0e64eb73b", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -332,6 +361,16 @@ namespace StoreApp.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductReviews_ProductId",
+                table: "ProductReviews",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductReviews_UserId",
+                table: "ProductReviews",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
@@ -356,6 +395,9 @@ namespace StoreApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "CartLine");
+
+            migrationBuilder.DropTable(
+                name: "ProductReviews");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

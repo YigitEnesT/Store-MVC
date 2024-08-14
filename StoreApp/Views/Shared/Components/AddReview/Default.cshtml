@@ -1,0 +1,44 @@
+@model ProductReviewDtoForInsertion
+
+<!-- Add Review Button -->
+<div class="mt-4" >
+    <button id="addReviewButton" class="btn btn-primary">Add Review</button>
+</div>
+
+<!-- Hidden Add Review Form -->
+<div id="reviewForm" class="mt-4" style="display: none;">
+    <form method="post" asp-controller="Product" asp-action="CreateReview">
+        <div class="mb-3">
+            <label asp-for="ReviewText" class="form-label"></label>
+            <textarea asp-for="ReviewText" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="ReviewText" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Rating" class="form-label"></label>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label class="star" for="star4" title="Great" aria-hidden="true"></label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label class="star" for="star2" title="Good" aria-hidden="true"></label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+            </div>
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+
+        <input type="hidden" asp-for="ProductId" />
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+</div>
+
+<!-- CSS Dosyasını Dahil Etme -->
+<link href="~/css/review.css" rel="stylesheet" />
+
+<!-- JavaScript Dosyasını Dahil Etme -->
+<script src="~/js/review.js"></script>

@@ -2,6 +2,8 @@
 
 @{
     var total = @Model.Lines.Sum(c => c.Product.Price * c.Quantity);
+    var modalId = $"orderDetailsModal-{Model.OrderId}";
+    var modalLabelId = $"{modalId}-label";
 }
 
 <div class="row shadow my-3">
@@ -25,12 +27,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="align-middle">@Model?.OrderId</td>
+                        <td class="align-middle">@Model?.OrderNumber</td>
                         <td class="align-middle">@Model?.OrderedAt.ToString()</td>
                         <td class="align-middle">@total.ToString("c2")</td>
                         <td class="align-middle">
                             <!-- Button to trigger modal -->
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#@modalId">
                                 Details
                             </button>
                         </td>
@@ -50,32 +52,51 @@
 </div>
 
 <!-- Modal HTML -->
-<div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="@modalLabelId" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="orderDetailsModalLabel">Order Details</h5>
+                <h5 class="modal-title" id="@modalLabelId">Order Details</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Display order details here -->
-                <h6>Order ID:</h6>
-                <p>@Model?.OrderId</p>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Order Number:</h6>
+                        <p>@Model?.OrderNumber</p>
 
-                <h6>Order Date:</h6>
-                <p>@Model?.OrderedAt.ToString()</p>
+                        <h6>Order Date:</h6>
+                        <p>@Model?.OrderedAt.ToString()</p>
 
-                <h6>Total Amount:</h6>
-                <p>@total.ToString("c2")</p>
+                        <h6>Total Amount:</h6>
+                        <p>@total.ToString("c2")</p>
 
-                <h6>Items:</h6>
-                <ul>
-                    @foreach (var line in Model.Lines)
-                    {
-                        <li>@line.Product.ProductName - @line.Quantity x @line.Product.Price.ToString("c2")</li>
-                    }
-                </ul>
+                        <h6>Items:</h6>
+                        <ul>
+                            @foreach (var line in Model.Lines)
+                            {
+                                <li>@line.Product.ProductName - @line.Quantity x @line.Product.Price.ToString("c2")</li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h6>Receiver Name:</h6>
+                        <p>@Model?.Name</p>
+
+                        <h6>Address:</h6>
+                        <p>@Model?.Address</p>
+                        <p>@Model?.StreetAddress</p>
+                        <p>@Model?.County / @Model?.City</p>
+                        
+                        @if (@Model.GiftWrap)
+                        {
+                            <h6>Gift Wrapped</h6>
+                        }
+                    </div>
+                </div>
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
