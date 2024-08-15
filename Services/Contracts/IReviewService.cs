@@ -1,5 +1,6 @@
 using Entities.Dtos;
 using Entities.Models;
+using Entities.RequestParameters;
 
 namespace Services.Contracts
 {
@@ -11,5 +12,6 @@ namespace Services.Contracts
         void UpdateOneReview(ProductReviewDtoForUpdate review);
         void DeleteOneReview(int id, bool trackChanges);
         ProductReview? GetOneReview(int id, bool trackChanges);
+        IEnumerable<ProductReview> GetAllReviewsWithPagination(ReviewRequestParameter p);
     }
 }

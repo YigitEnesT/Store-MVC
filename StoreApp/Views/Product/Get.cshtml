@@ -1,7 +1,7 @@
 @model Product
 
 @{
-    ViewData["ProductId"]=Model.ProductId;
+    ViewData["ProductId"] = Model.ProductId;
 }
 
 <div class="row">
@@ -35,25 +35,29 @@
         </div>
     </div>
     <div class="col-lg-4 text-center">
-        <h5 class="my-5">
-            Summary
-        </h5>
-        <div class="shadow p-2 rounded">
+        <div class="shadow p-2 rounded mt-5">6t
             <p>@Model.Summary</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, neque.</p>
         </div>
         <div class="shadow p-2 rounded my-2" style="max-height: 400px; overflow-y: auto;">
             <h5>Reviews</h5>
-            @await Component.InvokeAsync("ProductReviews", Model.ProductId)
+            @await Component.InvokeAsync("ProductReviews", new ReviewRequestParameter
+            {
+                ProductId = Model.ProductId,
+                PageNumber = Convert.ToInt32(ViewContext.HttpContext.Request.Query["PageNumber"].FirstOrDefault() ?? "1"),
+                PageSize = 2
+            })
+
+
+
             @if (User.Identity.IsAuthenticated)
             {
                 @await Component.InvokeAsync("AddReview", new
                     {
                         model = new ProductReviewDtoForInsertion
-           {
-               ProductId =
-            Model.ProductId
-           }
+                        {
+                            ProductId = Model.ProductId
+                        }
                     })
             }
         </div>

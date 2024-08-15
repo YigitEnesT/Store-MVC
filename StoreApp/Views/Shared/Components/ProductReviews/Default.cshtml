@@ -1,9 +1,9 @@
-@model IEnumerable<ProductReview>
+@model ReviewListViewModel
 
-<div class="text-center my-3">
-    @if (Model != null && Model.Any())
+<div class="text-center my-3 border-bottom">
+    @if (Model != null && Model.Reviews.Any())
     {
-        foreach (var review in Model)
+        foreach (var review in Model.Reviews)
         {
             <div class="card shadow rounded-5 bg-light my-3">
                 <div class="card-body">
@@ -37,6 +37,20 @@
                 </div>
             </div>
         }
+            <div class="d-flex justify-content-end mb-1">
+            @{
+                var routeValues = ViewContext.HttpContext.Request.Query.ToDictionary(q => q.Key, q => (object)q.Value.ToString());
+            }
+            <div page-model="@Model?.Pagination" 
+                 page-action="get" 
+                 page-classes-enabled="true" 
+                 page-class="btn"
+                 page-class-normal="btn-outline-dark" 
+                 page-class-selected="btn-primary" 
+                 class="btn-group"
+                 route-values="@(new RouteValueDictionary(routeValues))">
+            </div>
+        </div>
     }
     else
     {

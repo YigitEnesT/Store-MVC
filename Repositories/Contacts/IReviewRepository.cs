@@ -1,4 +1,5 @@
 using Entities.Models;
+using Entities.RequestParameters;
 
 namespace Repositories.Contracts
 {
@@ -10,5 +11,6 @@ namespace Repositories.Contracts
         void UpdateOneReview(ProductReview review);
         void DeleteOneReview(ProductReview review);
         ProductReview? GetOneReview(int id, bool trackChanges);
+        IQueryable<ProductReview> GetAllReviewsWithPagination(ReviewRequestParameter p);
     }
 }
