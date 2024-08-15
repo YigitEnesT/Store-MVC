@@ -16,7 +16,8 @@ namespace StoreApp.Components
 
         public IViewComponentResult Invoke(int id)
         {
-            var reviews =  _manager.ReviewService.GetAllReviewsById(id ,false);
+            var username = User.Identity.Name;
+            var reviews =  _manager.ReviewService.GetAllReviewsById(id ,false).OrderByDescending(r => r.User.UserName.Equals(username));
             return View(reviews);
         }
     }
