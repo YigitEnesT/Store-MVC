@@ -1,0 +1,16 @@
+.show-more {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline;
+    /* Aynı satırda göster */
+}
+
+.show-more:hover {
+    text-decoration: underline;
+}
+
+.review-text p {
+    display: inline;
+    /* Metni aynı satırda göster */
+}

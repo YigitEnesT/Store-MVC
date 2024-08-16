@@ -35,17 +35,18 @@
         </div>
     </div>
     <div class="col-lg-4 text-center">
-        <div class="shadow p-2 rounded mt-5">6t
+        <div class="shadow p-2 rounded mt-5">
             <p>@Model.Summary</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, neque.</p>
         </div>
-        <div class="shadow p-2 rounded my-2" style="max-height: 400px; overflow-y: auto;">
+        <div class="shadow p-2 rounded my-2" style="max-height: 400px; overflow-y:auto;">
             <h5>Reviews</h5>
             @await Component.InvokeAsync("ProductReviews", new ReviewRequestParameter
             {
                 ProductId = Model.ProductId,
                 PageNumber = Convert.ToInt32(ViewContext.HttpContext.Request.Query["PageNumber"].FirstOrDefault() ?? "1"),
-                PageSize = 2
+                PageSize = 2,
+                UserName = User?.Identity?.Name
             })
 
 

@@ -2,11 +2,11 @@
 
 <!-- Add Review Button -->
 <div class="mt-4" >
-    <button id="addReviewButton" class="btn btn-primary">Add Review</button>
+    <button id="addReviewButton" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#reviewForm" aria-expanded="false" aria-controls="reviewForm">Add Review</button>
 </div>
 
 <!-- Hidden Add Review Form -->
-<div id="reviewForm" class="mt-4" style="display: none;">
+<div id="reviewForm" class="mt-4 collapse">
     <form method="post" asp-controller="Product" asp-action="CreateReview">
         <div class="mb-3">
             <label asp-for="ReviewText" class="form-label"></label>
@@ -38,7 +38,7 @@
 </div>
 
 <!-- CSS Dosyasını Dahil Etme -->
-<link href="~/css/review.css" rel="stylesheet" />
+<link href="~/css/addReview.css" rel="stylesheet" />
 
 <!-- JavaScript Dosyasını Dahil Etme -->
-<script src="~/js/review.js"></script>
+<script src="~/js/addReview.js"></script>

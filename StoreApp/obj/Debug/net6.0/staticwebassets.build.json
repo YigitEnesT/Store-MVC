@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XiZxBzACRDckdHpIk3bnQi9n8fDoiRRIBbloOYKpr0c=",
+  "Hash": "/nVrQ7Ergsl6idMCXj2hkpNC99iuNOQTyHUmd3xoYyU=",
   "Source": "StoreApp",
   "BasePath": "_content/StoreApp",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\css\\review.css",
+      "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\css\\addReview.css",
       "SourceId": "StoreApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\",
       "BasePath": "_content/StoreApp",
-      "RelativePath": "css/review.css",
+      "RelativePath": "css/addReview.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,7 +33,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\review.css"
+      "OriginalItemSpec": "wwwroot\\css\\addReview.css"
+    },
+    {
+      "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\css\\productReviews.css",
+      "SourceId": "StoreApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\",
+      "BasePath": "_content/StoreApp",
+      "RelativePath": "css/productReviews.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\productReviews.css"
     },
     {
       "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\css\\site.css",
@@ -340,12 +359,12 @@
       "OriginalItemSpec": "wwwroot\\images\\laptop.jpg"
     },
     {
-      "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\js\\review.js",
+      "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\js\\addReview.js",
       "SourceId": "StoreApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\",
       "BasePath": "_content/StoreApp",
-      "RelativePath": "js/review.js",
+      "RelativePath": "js/addReview.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -356,7 +375,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\review.js"
+      "OriginalItemSpec": "wwwroot\\js\\addReview.js"
+    },
+    {
+      "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\js\\productReviews.js",
+      "SourceId": "StoreApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\",
+      "BasePath": "_content/StoreApp",
+      "RelativePath": "js/productReviews.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\productReviews.js"
     },
     {
       "Identity": "C:\\Users\\yetun\\Desktop\\BTK\\MVC-Kurs\\Store\\StoreApp\\wwwroot\\js\\site.js",

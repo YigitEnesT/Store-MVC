@@ -6,6 +6,7 @@ namespace Entities.Dtos
     {
         public int ReviewId { get; init; }
         [Required(ErrorMessage = "Review Text is required.")]
+        [MaxLength(250)]
         public String? ReviewText { get; init; }
         [Range(1,5, ErrorMessage = "Rating must be between 1 and 5.")]
         [Required(ErrorMessage ="Rating is required.")]

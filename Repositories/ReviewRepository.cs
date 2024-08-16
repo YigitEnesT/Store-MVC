@@ -28,7 +28,10 @@ namespace Repositories
 
         public IQueryable<ProductReview> GetAllReviewsWithPagination(ReviewRequestParameter p)
         {
-            return GetAllReviewsById(p.ProductId, false).ToPaginate(p.PageNumber,p.PageSize);
+            return GetAllReviewsById(p.ProductId, false)
+                .OrderByDescending(r => r.User.UserName.Equals(p.UserName))
+                .ThenByDescending(r => r.ReviewDate)
+                .ToPaginate(p.PageNumber,p.PageSize);
         }
 
         public ProductReview? GetOneReview(int id, bool trackChanges)
